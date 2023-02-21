@@ -1,0 +1,56 @@
+<div nxLayout="grid maxwidth">
+  <div nxRow>
+    <div nxCol="12">
+      <h1 nxHeadline="section" class="headline">ART COLLECTION</h1>
+    </div>
+  </div>
+  <div nxRow>
+    <div nxCol="6">
+      <nx-formfield nxLabel="Sort by">
+          <nx-dropdown placeholder="Choose a sort option" #nxDropdownComponent>
+            <nx-dropdown-item
+              *ngFor="let option of sortOptions"
+              [nxValue]="option"
+              (onSelectionChange)="onSortSelectionChange($event)"
+            ></nx-dropdown-item>
+          </nx-dropdown>
+      </nx-formfield>
+    </div>
+    <div nxCol="6">
+      <nx-formfield nxLabel="Style">
+        <nx-multi-select #nxMultiSelectComponent
+                         placeholder="Choose styles"
+                         [options]="complexOptions"
+                         [selectLabel]="selectStylesLabel"
+                         [selectValue]="selectStylesValue"
+                         (selectionChange)="onStylesSelectionChange($event)"
+        >
+        </nx-multi-select>
+      </nx-formfield>
+    </div>
+  </div>
+  <div nxRow>
+    <div nxCol="12,6,4,3" *ngFor="let item of filteredData">
+      <app-photo-frame [datum]="item"></app-photo-frame>
+    </div>
+  </div>
+  <div nxRow>
+    <div nxCol="12" class="pagination">
+      <nx-pagination
+        [nxCount]="totalItems"
+        [nxPage]="currentPage"
+        [nxPerPage]="limit"
+        nxType="advanced"
+        (nxGoPrev)="prevPage()"
+        (nxGoNext)="nextPage()"
+        (nxGoPage)="goToPage($event)"
+      >
+      </nx-pagination>
+    </div>
+  </div>
+</div>
+
+
+
+
+

@@ -1,0 +1,21 @@
+<nx-card class="nx-margin-s margin-box card-container">
+  <nx-card-header>
+    <figure nxFigure>
+      <img class="art-image" [src]="this.imageUrl" appHideMissingImage>
+    </figure>
+  </nx-card-header>
+  <p nxCopytext="large">
+    {{datum.title}}
+  </p>
+  <p nxCopytext="medium">
+    {{datum.artist_titles}}
+  </p>
+  <p nxCopytext="small">
+    {{formattedYearAndLocation}}
+  </p>
+  <p nxCopytext="small">
+    {{datum.material_titles}}
+  </p>
+</nx-card>
+
+
